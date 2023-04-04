@@ -30,7 +30,8 @@ Let's have a look at the brief explanations of what this repository folder/files
 
 ## How to put datasets
 There are **two** data directories which contain the data.
-- **raw_data** : As explained earlier, this contains the raw data i.e. raw images and the corresponding annotations for each dataset you want to use. The structure of this directory **must have to be** like this -
+### **raw_data**
+As explained earlier, this contains the raw data i.e. raw images and the corresponding annotations for each dataset you want to use. The structure of this directory **must have to be** like this -
 ```
 |
 ...
@@ -55,16 +56,16 @@ There are **two** data directories which contain the data.
 Each dataset has a directory named after it and it contains handwritten script images inside *Images* directory and annotations/ground truths inside the *Annotations* directory. For simplicity, the images and corresponding ground truths are named as same. For example, image *abc.jpg* has its corresponding ground truth as *abc.txt*.
 For the ease of use, I recommend you to download the datasets from the Kaggle links given below. These dataset repositories contain images and annotations in the above mentioned structure. Download the datasets and unzip inside the **`raw_data`** folder.
     
-- 
-    - Bongabdo
-    - BanglaWriting
-    - CMATERDb
-    - WBSUBNdb
+- Bongabdo
+- BanglaWriting
+- CMATERDb
+- WBSUBNdb
 
-- **data** : As explained earlier, this folder contains preprocessed data which are split into **Train** and **Validation** sets.
-    - **Train** folder contains training Images and Annotations in the respective folders.
-    - **Validation** folder contains validation Images and Annotations in the respecctive folders.
-    The split ratio can be defined in `preprocess.ipynb` file while creating the splits. The directory structure should look like this -
+### **data**
+As explained earlier, this folder contains preprocessed data which are split into **Train** and **Validation** sets.
+- **Train** folder contains training Images and Annotations in the respective folders.
+- **Validation** folder contains validation Images and Annotations in the respecctive folders.
+The split ratio can be defined in `preprocess.ipynb` file while creating the splits. The directory structure should look like this -
 ```
 |
 ...

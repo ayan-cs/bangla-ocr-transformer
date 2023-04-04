@@ -48,11 +48,30 @@ There are **two** data directories which contain the data.
 |      |      |--- Images
 |      |
 |      |--- <Your dataset name>
+|             |
+|             |--- Annotations
+|             |--- Images
+```
+Each dataset has a directory named after it and it contains handwritten script images inside *Images* directory and annotations/ground truths inside the *Annotations* directory. For simplicity, the images and corresponding ground truths are named as same. For example, image *abc.jpg* has its corresponding ground truth as *abc.txt*.
+- **data** : As explained earlier, this folder contains preprocessed data which are split into **Train** and **Validation** sets.
+    - **Train** folder contains training Images and Annotations in the respective folders.
+    - **Validation** folder contains validation Images and Annotations in the respecctive folders.
+    The split ratio can be defined in `preprocess.ipynb` file while creating the splits. The directory structure should look like this -
+```
+|
+...
+|
+|--- data
+|      |
+|      |--- Train
 |      |      |
 |      |      |--- Annotations
 |      |      |--- Images
+|      |
+|      |--- Validation
+|             |
+|             |--- Annotations
+|             |--- Images
 ```
-Each dataset has a directory named after it and it contains handwritten script images inside *Images* directory and annotations/ground truths inside the *Annotations* directory. For simplicity, the images and corresponding ground truths are named as same. For example, image *abc.jpg* has its corresponding ground truth as *abc.txt*.
-- **data** :
 
 ## How to Run the program

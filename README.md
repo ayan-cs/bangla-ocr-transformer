@@ -1,6 +1,6 @@
 # BanglaOCR : Full Page Bangla handwritten text recognition using Image to Sequence Architecture
 
-### Contents
+## Contents
 Let's have a look at the brief explanations of what this repository folder/files contain and what their significance are.
 
 - **charset** : Bangla, being an Indic language, I have used `utf-8` encoding for the representation purpose. The system uses **Character-level vocabulary**, and therefore, it is important to give our system a list of what the possible characters it is going to see. Thus, this directory contains two files :
@@ -28,7 +28,7 @@ Let's have a look at the brief explanations of what this repository folder/files
     - **model.nheads** : Specify the number of attention heads.
 - **`train_model.py`** : The main training code is written here. This uses the `train_config.yaml` file to read necessary details, reads preprocessed data from `data` directory and trains the model accordingly. This is invoked by `main.py` when given command line argument as `train`.
 
-### How to put datasets
+## How to put datasets
 
 
-### How to Run the program
+## How to Run the program

@@ -53,6 +53,12 @@ There are **two** data directories which contain the data.
 |             |--- Images
 ```
 Each dataset has a directory named after it and it contains handwritten script images inside *Images* directory and annotations/ground truths inside the *Annotations* directory. For simplicity, the images and corresponding ground truths are named as same. For example, image *abc.jpg* has its corresponding ground truth as *abc.txt*.
+For the ease of use, I recommend you to download the datasets from the Kaggle links given below. These dataset repositories contain images and annotations in the above mentioned structure. Download the datasets and unzip inside the **`raw_data`** folder.
+    - Bongabdo
+    - BanglaWriting
+    - CMATERdb
+    - WBSUBNdb
+
 - **data** : As explained earlier, this folder contains preprocessed data which are split into **Train** and **Validation** sets.
     - **Train** folder contains training Images and Annotations in the respective folders.
     - **Validation** folder contains validation Images and Annotations in the respecctive folders.

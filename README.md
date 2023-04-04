@@ -56,8 +56,8 @@ As explained earlier, this contains the raw data i.e. raw images and the corresp
 Each dataset has a directory named after it and it contains handwritten script images inside *Images* directory and annotations/ground truths inside the *Annotations* directory. For simplicity, the images and corresponding ground truths are named as same. For example, image *abc.jpg* has its corresponding ground truth as *abc.txt*.
 For the ease of use, I recommend you to download the datasets from the Kaggle links given below. These dataset repositories contain images and annotations in the above mentioned structure. Download the datasets and unzip inside the **`raw_data`** folder.
     
-- Bongabdo
-- BanglaWriting
+- [Bongabdo](https://www.kaggle.com/datasets/ayanwap7/bongabdo1429)
+- [BanglaWriting](https://www.kaggle.com/datasets/ayanwap7/banglawriting-with-page-level-annotations)
 - CMATERDb
 - WBSUBNdb
 
@@ -85,3 +85,24 @@ The split ratio can be defined in `preprocess.ipynb` file while creating the spl
 ```
 
 ## How to Run the program
+
+### 1. Preprocessing the data
+1. Download the datasets from the links given above
+2. Extract the datasets inside `raw_data` directory. The directory structure is given above.
+3. Run the steps given in `preprocess.ipynb` notebook. Make necessary changes (such as split size), if applicable.
+4. The preprocessed data will be populated inside `data` folder and split in `Train` and `Validation` sets.
+
+### 2. Training a Model
+1. Clone this repository into your local machine using **`git clone git@github.com:ayan-cs/bangla-ocr-transformer`**. You can also download the `.zip` file and extract it.
+2. Make necessary changes in `train_config.yaml` file as per your choice/computing capacity.
+3. Run `main.py` using the following command : **`python main.py train`**
+4. The model will be trained. After successful training, trained model will be available inside `Saved Checkpoints` folder. Training logs, Error plot and Tokenizer file will be populated inside `Outputs` folder.
+
+### Inference
+1. Identify the model you want to use for inference.
+2. Make sure you have the **Validation** set available inside `data` folder.
+3. Put the model name (without extension) inside `inference_config.yaml` file.
+4. Run `main.py` using the following command : **`python main.py inference`**
+5. After successful execution, Inference logs will be available inside `Outputs` directory.
+
+### Single Image Inference

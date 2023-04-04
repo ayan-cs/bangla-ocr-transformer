@@ -23,6 +23,5 @@ def findMaxTextLength(gt_path_train, gt_path_val):
             text = f.read()
         if len(text) > maxlen:
             maxlen = len(text)
-    print(maxlen)
     maxlen = (int(maxlen / 100) + 2) * 100
     return maxlen

@@ -2,7 +2,6 @@ import numpy as np
 import os, unicodedata, torch
 from itertools import groupby
 from torch import nn
-from torchvision.models import resnet50, resnet101
 from torch.autograd import Variable
 from torch.utils.data import Dataset
 from PIL import Image

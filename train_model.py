@@ -120,7 +120,6 @@ def trainer(config):
 
     input_size = (640, 360, 1)
     max_text_length = findMaxTextLength(gt_path_train, gt_path_val)
-    print(max_text_length)
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     print(f"Device type : {device}")
     output.write(f"Device type : {device}")

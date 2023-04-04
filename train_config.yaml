@@ -1,7 +1,7 @@
 # == DO NOT RENAME THIS FILE ==
 
 # Number of epochs
-epoch : 50
+epoch : 100
 
 # Set batch_size as per your GPU capacity
 batch_size : 4

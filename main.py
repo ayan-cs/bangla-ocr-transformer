@@ -4,8 +4,6 @@ from train_model import trainer
 from inference import run_inference
 
 num_args = len(sys.argv)
-preprocess = False
-print(sys.argv)
 if num_args > 2:
     sys.exit(f"Too many arguments : Expected atmost 1, got {num_args-1}")
 if num_args < 2 :

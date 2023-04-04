@@ -65,6 +65,7 @@ For the ease of use, I recommend you to download the datasets from the Kaggle li
 As explained earlier, this folder contains preprocessed data which are split into **Train** and **Validation** sets.
 - **Train** folder contains training Images and Annotations in the respective folders.
 - **Validation** folder contains validation Images and Annotations in the respecctive folders.
+
 The split ratio can be defined in `preprocess.ipynb` file while creating the splits. The directory structure should look like this -
 ```
 |

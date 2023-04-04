@@ -29,6 +29,30 @@ Let's have a look at the brief explanations of what this repository folder/files
 - **`train_model.py`** : The main training code is written here. This uses the `train_config.yaml` file to read necessary details, reads preprocessed data from `data` directory and trains the model accordingly. This is invoked by `main.py` when given command line argument as `train`.
 
 ## How to put datasets
-
+There are **two** data directories which contain the data.
+- **raw_data** : As explained earlier, this contains the raw data i.e. raw images and the corresponding annotations for each dataset you want to use. The structure of this directory **must have to be** like this -
+```
+|
+...
+|
+|--- raw_data
+|      |
+|      |--- Bongabdo
+|      |      |
+|      |      |--- Annotations
+|      |      |--- Images
+|      |
+|      |--- BanglaWriting
+|      |      |
+|      |      |--- Annotations
+|      |      |--- Images
+|      |
+|      |--- <Your dataset name>
+|      |      |
+|      |      |--- Annotations
+|      |      |--- Images
+```
+Each dataset has a directory named after it and it contains handwritten script images inside *Images* directory and annotations/ground truths inside the *Annotations* directory. For simplicity, the images and corresponding ground truths are named as same. For example, image *abc.jpg* has its corresponding ground truth as *abc.txt*.
+- **data** :
 
 ## How to Run the program

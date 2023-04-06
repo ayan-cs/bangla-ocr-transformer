@@ -10,7 +10,9 @@ Let's have a look at the brief explanations of what this repository folder/files
 - **Outputs** : This directory will contain *Tokenizer* file, *Training logs*, *Validation logs* and *Error plots* generated during training. You do not need to touch/modify this directory.
 - **raw_data** : This will contain your raw data, which will be preprocessed before training/inference. You have to keep your dataset inside this directory. Data inside this directory can be preprocessed using `preprocess.ipynb` file. Throughout the process, raw images and ground truths will remain intact. As mentioned earlier, preprocessed images and ground truths will be stored inside **`data`** directory and from there, they will be used for training and inference.
 - **Saved Checkpoints** : This directory will contain the trained models. The naming convention followed for naming the trained model is - `BanglaOCR_<No. of Epochs>_<Hidden layer dimension>_<No. of heads>_<No. of decoder layers>.pth`. For example, if a model name is `BanglaoCR_200_256_4_4.pth`, that means the model is trained for *200 epochs*, the model's *hidden layer dimension is 256*, it used *4 attention heads* and the number of *Transformer Decoder layer(s) is 4*. During Inference, you need to copy the model name from this directory **without extension** and put that within `inference_config.yaml` file. Moreover, **DO NOT change the model name** as the same model is loaded during inference by parsing the model name only.
-- **`inference_config.yaml`** : Put the model name (without extension), which you want to use during inference.
+- **`inference_config.yaml`** :
+    - **`model_name`** : Put the model name (without extension), which you want to use during inference.
+    - **`image`** : Required for `single_image_inference.py`. Put the image name here which you want to predict.
 - **`inference.py`** : The main inference code is written here. This uses the `inference_config.yaml` file to read necessary details, reads preprocessed **validation** data from `data` directory and infers from the specified model accordingly. This is invoked by `main.py` when given command line argument as `inference`.
 - **`main.py`** : The main driver code. You need to run this code in order to run the system. Details have been discussed in the upcoming section.
 - **`model.py`** : The model/architecture class in contained here. Currently, the model uses `ResNet-18` as backbone/feature extractor and for both image embeddings and ground truth embeddings, **Sine** positional encodings are used. If you wish to change them, visit this file.
@@ -19,7 +21,7 @@ Let's have a look at the brief explanations of what this repository folder/files
     - **`DataGenerator`** creates data streaming from the `data` directory to the `DataLoader` during training and inference.
     - **`Tokenizer`** performs preprocessing the ground truths. The operations include text padding, generating numeric representation, creating and keeping records of vocabulary etc.
     - **`LabelSmoothing`** contains the loss function.
-- **`single_image_infernece.py`** : As the name itself explains its functionality, it predicts/infers from a single image. All you need to do is to put that image inside the `data` folder and pass a command line argument containing the image name. The code will do necessary preprocessing and generate its predictions. For details, visit the upcoming section.
+- **`single_image_infernece.py`** : As the name itself explains its functionality, it predicts/infers from a single image. All you need to do is to put that image inside the `data` folder and update the `inference_config.yaml` file accordingly. The code will do necessary preprocessing and generate its predictions. For details, visit the upcoming section.
 - **`train_config.yaml`** : This contains necessary parameters required while training.
     - **epoch** : Specify the number of epochs.
     - **batch_size** : Specify the batch size accordint to your computing power and capacity.
@@ -98,11 +100,11 @@ The split ratio can be defined in `preprocess.ipynb` file while creating the spl
 3. Run `main.py` using the following command : **`python main.py train`**
 4. The model will be trained. After successful training, trained model will be available inside `Saved Checkpoints` folder. Training logs, Error plot and Tokenizer file will be populated inside `Outputs` folder.
 
-### Inference
+### 3. Inference
 1. Identify the model you want to use for inference.
 2. Make sure you have the **Validation** set available inside `data` folder.
 3. Put the model name (without extension) inside `inference_config.yaml` file.
 4. Run `main.py` using the following command : **`python main.py inference`**
 5. After successful execution, Inference logs will be available inside `Outputs` directory.
 
-### Single Image Inference
+### 4. Single Image Inference

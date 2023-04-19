@@ -23,5 +23,22 @@ def findMaxTextLength(gt_path_train, gt_path_val):
             text = f.read()
         if len(text) > maxlen:
             maxlen = len(text)
+    print(maxlen)
     maxlen = (int(maxlen / 100) + 2) * 100
     return maxlen
+
+def generatePlots(train_loss_list, val_loss_list, fig_path):
+    if len(train_loss_list) == 0 or len(val_loss_list) == 0:
+        print("List empty")
+    else:
+        min_val_loss = min(val_loss_list)
+        epoch = val_loss.index(min_val_loss)
+        print(f"Optimal point : {epoch+1} epoch with Val loss {min_val_loss}")
+        plt.plot(range(len(train_loss_list)), train_loss_list, color='blue', label='Train Loss')
+        plt.plot(range(len(val_loss_list)), val_loss_list, color='green', label='Valid loss')
+        plt.plot(epoch, min_val_loss, marker = 'v', color = 'red', label = 'Optimal point')
+        plt.xlabel('Epochs')
+        plt.ylabel('Loss')
+        plt.title('Loss Summary')
+        plt.legend()
+        plt.savefig(fig_path)

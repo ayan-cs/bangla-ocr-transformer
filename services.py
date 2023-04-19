@@ -47,7 +47,7 @@ class DataGenerator(Dataset):
 class Tokenizer():
     """Manager tokens functions and charset/dictionary properties"""
     def __init__(self, chars, max_text_length):
-        self.PAD_TK, self.UNK_TK,self.SOS,self.EOS = "PAD", "UNK", "SOS", "EOS"
+        self.PAD_TK, self.UNK_TK,self.SOS,self.EOS = "Þ", "§", "SOS", "EOS"
         self.chars = [self.PAD_TK] + [self.UNK_TK ]+ [self.SOS] + [self.EOS] + chars
         self.PAD = self.chars.index(self.PAD_TK)
         self.UNK = self.chars.index(self.UNK_TK)
@@ -82,7 +82,7 @@ class LabelSmoothing(nn.Module):
     "Implement label smoothing"
     def __init__(self, size, padding_idx=0, smoothing=0.0):
         super(LabelSmoothing, self).__init__()
-        self.criterion = nn.KLDivLoss(reduction='sum')
+        self.criterion = nn.KLDivLoss(reduction='sum') # nn.CrossEntropyLoss() # 
         self.padding_idx = padding_idx
         self.confidence = 1.0 - smoothing
         self.smoothing = smoothing
@@ -100,3 +100,20 @@ class LabelSmoothing(nn.Module):
             true_dist.index_fill_(0, mask.squeeze(), 0.0)
         self.true_dist = true_dist
         return self.criterion(x, Variable(true_dist, requires_grad=False))
+
+class EarlyStopper :
+    def __init__(self, patience = 5, min_delta=0):
+        self.patience = patience
+        self.min_delta = min_delta
+        self.counter = 0
+        self.min_validation_loss = np.inf
+
+    def early_stop(self, validation_loss):
+        if validation_loss < self.min_validation_loss:
+            self.min_validation_loss = validation_loss
+            self.counter = 0
+        elif validation_loss > (self.min_validation_loss + self.min_delta):
+            self.counter += 1
+            if self.counter >= self.patience:
+                return True
+        return False

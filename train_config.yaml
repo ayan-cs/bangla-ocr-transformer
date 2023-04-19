@@ -1,7 +1,10 @@
 # == DO NOT RENAME THIS FILE ==
 
 # Number of epochs
-epoch : 100
+epoch : 1000
+
+# Early stopping criteria
+patience : 25
 
 # Set batch_size as per your GPU capacity
 batch_size : 4

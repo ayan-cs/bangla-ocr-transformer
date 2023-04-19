@@ -16,7 +16,7 @@ def preprocess(img_path : str):
         else:
             new_img = np.full((new_height, w), 255, dtype=np.uint8)
             new_img[:h, :] = img # (h, w)
-        return cv2.resize(new_img, (360, 640))
+        return cv2.resize(new_img, (360, 640)) # (720, 1280) or (360, 640) -> (w, h)
     
     def binarize(image):
         blurred = cv2.GaussianBlur(image, (5, 5), 0)

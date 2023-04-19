@@ -1,3 +1,5 @@
 # == DO NOT RENAME THIS FILE ==
 
-model_name : BanglaOCR_50_256_4_4
+# model name convention : BanglaOCR_<epochs>_<d_model>_<nheads>_<num_decoder_layers>
+model_name : BanglaOCR_107_256_4_4
+image : IMG_20221226_0013.jpg

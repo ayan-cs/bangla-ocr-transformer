@@ -2,7 +2,7 @@ import numpy as np
 import math, os, torch, torchvision
 from torch import nn
 import torchvision.transforms as T
-from torchvision.models import resnet18
+from torchvision.models import resnet18, resnet50
 
 from utils import load_function
 
@@ -27,15 +27,17 @@ class BanglaOCR(nn.Module):
         super().__init__()
 
         # create ResNet-18 encoder; You can use other standard CNN architectures such as ResNet-50 as well
-        self.encoder = resnet18()
+        self.encoder = resnet50()
+        """for param in self.encoder.parameters():
+            param.requires_grad = False"""
         del self.encoder.fc
 
         # create conversion layer
-        self.conv = nn.Conv2d(512, hidden_dim, 1)
+        self.conv = nn.Conv2d(2048, hidden_dim, 1, bias=False)
 
         # create a default PyTorch transformer
         self.tf_decoder = nn.TransformerDecoder(
-            nn.TransformerDecoderLayer(hidden_dim, nheads), num_layers = num_decoder_layers
+            nn.TransformerDecoderLayer(hidden_dim, nheads, activation='gelu', dropout=0.2), num_layers = num_decoder_layers
         )
 
         # prediction heads with length of vocab
@@ -48,8 +50,8 @@ class BanglaOCR(nn.Module):
 
         # Sine positional encodings, spatial positional encoding can be used.
         # Detr baseline uses sine positional encoding.
-        self.row_embed = torch.zeros((1000, hidden_dim // 2), requires_grad=False)
-        self.col_embed = torch.zeros((1000, hidden_dim // 2), requires_grad=False)
+        self.row_embed = torch.zeros((1000, hidden_dim // 2))
+        self.col_embed = torch.zeros((1000, hidden_dim // 2))
         div_term = torch.exp(-math.log(10000) * torch.arange(0, hidden_dim // 2, 2) / hidden_dim)
         pe = torch.arange(0, 1000).unsqueeze(1)
         self.row_embed[:, 0::2] = torch.sin(pe * div_term)

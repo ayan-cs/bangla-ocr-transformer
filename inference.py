@@ -17,10 +17,10 @@ def test(model, test_loader, tokenizer, max_text_length, device):
     with torch.no_grad():
         for idx, batch in enumerate(test_loader):
             #print(f"Batch {idx} started", end='\t')
-            """if idx % 50 == 0 :
-                print(f"{idx} images processed out of {total} images")"""
-            if idx == 10 :
-                break
+            if idx % 50 == 0 :
+                print(f"{idx} images processed out of {total} images")
+            """if idx == 10 :
+                break"""
             src, trg = batch
             imgs.append(src.flatten(0,1))
             src, trg = src.to(device), trg.to(device)            

@@ -4,7 +4,7 @@
 epoch : 1000
 
 # Early stopping criteria
-patience : 25
+patience : 50
 
 # Set batch_size as per your GPU capacity
 batch_size : 4

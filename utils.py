@@ -32,7 +32,7 @@ def generatePlots(train_loss_list, val_loss_list, fig_path):
         print("List empty")
     else:
         min_val_loss = min(val_loss_list)
-        epoch = val_loss.index(min_val_loss)
+        epoch = val_loss_list.index(min_val_loss)
         print(f"Optimal point : {epoch+1} epoch with Val loss {min_val_loss}")
         plt.plot(range(len(train_loss_list)), train_loss_list, color='blue', label='Train Loss')
         plt.plot(range(len(val_loss_list)), val_loss_list, color='green', label='Valid loss')

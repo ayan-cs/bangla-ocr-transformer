@@ -27,13 +27,13 @@ class BanglaOCR(nn.Module):
         super().__init__()
 
         # create ResNet-18 encoder; You can use other standard CNN architectures such as ResNet-50 as well
-        self.encoder = resnet50()
+        self.encoder = resnet18()
         """for param in self.encoder.parameters():
             param.requires_grad = False"""
         del self.encoder.fc
 
         # create conversion layer
-        self.conv = nn.Conv2d(2048, hidden_dim, 1, bias=False)
+        self.conv = nn.Conv2d(512, hidden_dim, 1, bias=False)
 
         # create a default PyTorch transformer
         self.tf_decoder = nn.TransformerDecoder(
@@ -107,4 +107,5 @@ class BanglaOCR(nn.Module):
         trg = self.decoder(trg)
         trg = self.query_pos(trg)
         output = self.tf_decoder(memory = pos + 0.1 * h.flatten(2).permute(2, 0, 1), tgt = trg.permute(1,0,2), tgt_mask=self.trg_mask, tgt_key_padding_mask=trg_pad_mask.permute(1,0))
-        return self.vocab(output.transpose(0,1))
+        output_vocab = self.vocab(output.transpose(0,1))
+        return output_vocab

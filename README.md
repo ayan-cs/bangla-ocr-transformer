@@ -61,7 +61,6 @@ For the ease of use, I recommend you to download the datasets from the Kaggle li
 - [Bongabdo](https://www.kaggle.com/datasets/ayanwap7/bongabdo1429)
 - [BanglaWriting](https://www.kaggle.com/datasets/ayanwap7/banglawriting-with-page-level-annotations)
 - CMATERDb
-- WBSUBNdb
 
 ### **data**
 As explained earlier, this folder contains preprocessed data which are split into **Train** and **Validation** sets.

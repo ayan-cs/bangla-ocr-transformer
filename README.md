@@ -3,11 +3,9 @@
 ## IMPORTANT
 If you want to use the **Bongabdo** dataset and/or this code, it would be nice if you kindly cite these -
 
-```
 Ghosh, Ayanabha. (2023). Towards Full-page Offline Bangla Handwritten Text Recognition using Image-to-Sequence Architecture. 10.13140/RG.2.2.12455.73126.
 
 Bongabdo. (2023). UCI Machine Learning Repository. https://doi.org/10.24432/C5XK7S.
-```
 
 ## Contents
 Let's have a look at the brief explanations of what this repository folder/files contain and what their significance are.

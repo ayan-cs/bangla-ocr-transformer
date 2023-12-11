@@ -65,7 +65,7 @@ As explained earlier, this contains the raw data i.e. raw images and the corresp
 Each dataset has a directory named after it and it contains handwritten script images inside *Images* directory and annotations/ground truths inside the *Annotations* directory. For simplicity, the images and corresponding ground truths are named as same. For example, image *abc.jpg* has its corresponding ground truth as *abc.txt*.
 For the ease of use, I recommend you to download the datasets from the Kaggle links given below. These dataset repositories contain images and annotations in the above mentioned structure. Download the datasets and unzip inside the **`raw_data`** folder.
     
-- **Bongabdo** [UCI ML Repository](https://archive.ics.uci.edu/dataset/894/bongabdo) [Kaggle](https://www.kaggle.com/datasets/ayanwap7/bongabdo1429)
+- **Bongabdo** : Source 1 - [UCI ML Repository](https://archive.ics.uci.edu/dataset/894/bongabdo); Source 2 - [Kaggle](https://www.kaggle.com/datasets/ayanwap7/bongabdo1429)
 - [BanglaWriting](https://www.kaggle.com/datasets/ayanwap7/banglawriting-with-page-level-annotations)
 
 ### **data**

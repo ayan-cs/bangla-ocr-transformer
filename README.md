@@ -1,5 +1,14 @@
 # BanglaOCR : Full Page Bangla handwritten text recognition using Image to Sequence Architecture
 
+## IMPORTANT
+If you want to use the **Bongabdo** dataset and/or this code, it would be nice if you kindly cite these -
+
+```
+Ghosh, Ayanabha. (2023). Towards Full-page Offline Bangla Handwritten Text Recognition using Image-to-Sequence Architecture. 10.13140/RG.2.2.12455.73126.
+
+Bongabdo. (2023). UCI Machine Learning Repository. https://doi.org/10.24432/C5XK7S.
+```
+
 ## Contents
 Let's have a look at the brief explanations of what this repository folder/files contain and what their significance are.
 
@@ -60,7 +69,6 @@ For the ease of use, I recommend you to download the datasets from the Kaggle li
     
 - [Bongabdo](https://www.kaggle.com/datasets/ayanwap7/bongabdo1429)
 - [BanglaWriting](https://www.kaggle.com/datasets/ayanwap7/banglawriting-with-page-level-annotations)
-- CMATERDb
 
 ### **data**
 As explained earlier, this folder contains preprocessed data which are split into **Train** and **Validation** sets.
@@ -107,3 +115,8 @@ The split ratio can be defined in `preprocess.ipynb` file while creating the spl
 5. After successful execution, Inference logs will be available inside `Outputs` directory.
 
 ### 4. Single Image Inference
+1. Put the image inside `data` directory
+2. Inside the `inference_config.yaml` file, put the image filename (with extension)
+3. In case you have trained multiple models, make sure to update the `model_name` field with the desired model name
+4. Run `single_image_inference.py` using the following command : **`python single_image_inference.py`**
+5. The output will be shown on CMD/Terminal and will NOT be saved anywhere. To save the output in a file, make changes to the code accordingly.

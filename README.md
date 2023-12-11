@@ -3,9 +3,9 @@
 ## IMPORTANT
 If you want to use the **Bongabdo** dataset and/or this code, it would be nice if you kindly cite these -
 
-Ghosh, Ayanabha. (2023). Towards Full-page Offline Bangla Handwritten Text Recognition using Image-to-Sequence Architecture. 10.13140/RG.2.2.12455.73126.
+*Ghosh, Ayanabha. (2023). Towards Full-page Offline Bangla Handwritten Text Recognition using Image-to-Sequence Architecture. 10.13140/RG.2.2.12455.73126.*
 
-Bongabdo. (2023). UCI Machine Learning Repository. https://doi.org/10.24432/C5XK7S.
+*Bongabdo. (2023). UCI Machine Learning Repository. https://doi.org/10.24432/C5XK7S.*
 
 ## Contents
 Let's have a look at the brief explanations of what this repository folder/files contain and what their significance are.
@@ -65,7 +65,7 @@ As explained earlier, this contains the raw data i.e. raw images and the corresp
 Each dataset has a directory named after it and it contains handwritten script images inside *Images* directory and annotations/ground truths inside the *Annotations* directory. For simplicity, the images and corresponding ground truths are named as same. For example, image *abc.jpg* has its corresponding ground truth as *abc.txt*.
 For the ease of use, I recommend you to download the datasets from the Kaggle links given below. These dataset repositories contain images and annotations in the above mentioned structure. Download the datasets and unzip inside the **`raw_data`** folder.
     
-- [Bongabdo](https://www.kaggle.com/datasets/ayanwap7/bongabdo1429)
+- **Bongabdo** [UCI ML Repository](https://archive.ics.uci.edu/dataset/894/bongabdo) [Kaggle](https://www.kaggle.com/datasets/ayanwap7/bongabdo1429)
 - [BanglaWriting](https://www.kaggle.com/datasets/ayanwap7/banglawriting-with-page-level-annotations)
 
 ### **data**

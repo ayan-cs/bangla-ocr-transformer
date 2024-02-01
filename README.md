@@ -1,4 +1,4 @@
-# BanglaOCR : Full Page Bangla handwritten text recognition using Image to Sequence Architecture
+# Towards Full Page Offline Bangla Handwritten Text Recognition using Image-to-Sequence Architecture
 
 ## IMPORTANT
 If you want to use the **Bongabdo** dataset and/or this code, it would be nice if you kindly cite these -
